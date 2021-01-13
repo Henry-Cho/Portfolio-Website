@@ -3,9 +3,12 @@
 <html>
     <head>
         <title>Henry's Portfolio</title>
+        <!-- add website info -->
         <meta name="description" content="Portfolio for Henry, future software engineer">
         <meta name="author" content="Henry">
-        <link rel="icon" type='imgage/png' href="image/Plain & Glam.png">
+        <!-- add website logo -->
+        <link rel="icon" type='imgage/png' href="/image/favicon.png.png">
+        <!-- link files (font awesome, google fonts, css, javascript) -->
         <script src="https://kit.fontawesome.com/3642038712.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,7 +17,25 @@
         <script src="main.js" defer></script>
     </head>
 
-    <body>
-
+    <body style="background-image: url('image/background.png.png')">
+        <!-- create a nav bar -->
+        <nav>
+            <div class="logo"><img src="/image/favicon.png.png"></div>
+            <ul class='nav_menu'>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Skill</a></li>
+                <li><a href="#">My work</a></li>
+                <li><a href="#">Testimonial</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- create body parts-->
+        <section class="content">
+            <section class="photo"><img src="/image/Contact.jpg"></section>
+            <section class="title">Henry's Portfolio</section>
+            <section class="description"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit ipsa minima autem non omnis! Asperiores accusamus, sunt veniam consequatur officiis hic aliquam saepe reprehenderit earum culpa soluta et tempore mollitia?</p></section>
+            <button class="contact_btn">Contact Me</button>
+        </section>
     </body>
 </html>
