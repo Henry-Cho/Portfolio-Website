@@ -5,6 +5,10 @@ body {
   flex-direction: column;
   color: white;
   font-weight: bold;
+  background-image: url("image/background.png.png");
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 
 /* nav bar styling */
