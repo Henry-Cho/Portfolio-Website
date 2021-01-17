@@ -27,7 +27,7 @@ nav {
 }
 
 /* content box under the nav bar */
-.home_content {
+#home_content {
   display: flex;
   flex-direction: column;
   align-items: center;
