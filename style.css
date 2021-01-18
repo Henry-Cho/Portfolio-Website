@@ -1,9 +1,61 @@
+/* Global */
+:root {
+  /* Color */
+  --color-dark-pink: pink;
+  --color-black: black;
+  /*Font size*/
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+  /* Font weight*/
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+  /*Size*/
+  --size-border-radius: 4px;
+}
+
+/*Universal tags*/
+* {
+  box-sizing: border-box;
+}
+
+/* Typography */
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin: 16px 0px;
+}
+
+h2 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-black);
+  margin: 8px 0px;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
+  margin: 8px 0px;
+}
+
+p {
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
+  margin: 4px 0px;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
-  color: white;
   font-weight: bold;
   background-image: url("image/background.png.png");
   background-position: center;
@@ -22,12 +74,31 @@ nav {
 }
 
 .logo img {
-  width: 3.5rem;
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+  width: 4rem;
 }
 
 .nav_menu {
   display: flex;
   font-size: 1rem;
+  align-items: center;
+}
+
+.nav_menu_item {
+  padding: 8px 12px;
+  margin: 0px 4px;
+  cursor: default;
+  border-radius: var(--size-border-radius);
+}
+
+.nav_menu_item.active {
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+.nav_menu_item:hover {
+  background-color: var(--color-dark-pink);
 }
 
 /* content box under the nav bar */
@@ -65,6 +136,7 @@ h2 {
 
 ul li {
   list-style: none;
+  padding-left: 0px;
 }
 
 button {
