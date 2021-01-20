@@ -15,6 +15,9 @@
   --weight-regular: 400;
   /*Size*/
   --size-border-radius: 4px;
+
+  /*Animation*/
+  --animation-duration: 300ms;
 }
 
 /*Universal tags*/
@@ -57,6 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  width: 100%;
 }
 
 /* nav bar styling */
@@ -67,6 +71,7 @@ nav {
   align-items: center;
   height: 12vh;
   padding: 8px 12px;
+  background-color: rgb(180, 226, 238);
 }
 
 .logo img {
@@ -82,6 +87,7 @@ nav {
 }
 
 .nav_menu_item {
+  color: white;
   padding: 8px 12px;
   margin: 0px 4px;
   cursor: default;
@@ -107,7 +113,7 @@ nav {
   */
   text-align: center;
   padding: 40px;
-  background-image: url("image/background.png.png");
+  background-image: url("image/Background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -120,6 +126,7 @@ nav {
 .home_photo img {
   width: 12rem;
   height: 100%;
+  background-color: rgb(200, 216, 193);
   border-radius: 50%;
   border: 2px solid lightcyan;
 }
@@ -153,9 +160,6 @@ button {
   outline: none;
 }
 
-button:hover {
-}
-
 .home_contact {
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
@@ -164,4 +168,69 @@ button:hover {
   border: 2px solid white;
   border-radius: var(--size-border-radius);
   color: white;
+}
+
+/* Section Common */
+
+.section {
+  padding: 50px;
+  text-align: center;
+  max-width: 1200px;
+  /* margin 은 zoom in (화면 축소) 을 해서라도 다시 확인해보자 */
+  margin: auto;
+}
+
+.about_major {
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 0;
+}
+
+.major_icon {
+  width: 170px;
+  height: 170px;
+  line-height: 170px;
+  font-size: 70px;
+  color: #9898e6;
+  margin: auto;
+  border: 1px solid #9898e6;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.major_icon:hover i {
+  color: var(--color-dark-pink);
+  transform: rotate(-30deg) scale(1.1);
+}
+
+.major_icon i {
+  transition: all var(--animation-duration) ease;
+}
+
+.major_title,
+.major_description {
+  color: gray;
+}
+
+.major_description {
+  font-size: var(--font-small);
+}
+
+.career {
+  display: flex;
+  align-items: center;
+}
+
+.career img {
+  width: 13%;
+}
+
+.career_description {
+  margin-left: 20px;
+  text-align: left;
+}
+
+.career_description p {
+  font-size: var(--font-micro);
+  color: gray;
 }
