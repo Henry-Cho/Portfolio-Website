@@ -196,7 +196,6 @@ button {
   border: 1px solid #2f2f36;
   border-radius: 50%;
   margin-bottom: 16px;
-  margin: auto;
 }
 
 .major_icon:hover i {
@@ -242,4 +241,65 @@ button {
 #skills_content {
   background-color: rgb(202, 243, 218);
   max-width: 100%;
+  color: white;
+}
+
+.skillset {
+  display: flex;
+  background-color: rgb(97, 95, 95);
+}
+
+.skillset_title {
+  color: white;
+}
+
+#skills_content p {
+  margin: 30px;
+}
+
+.skill_left {
+  flex-basis: 60%;
+  padding: 20px 20px;
+}
+
+.skill_right {
+  flex-basis: 40%;
+}
+
+.skill_description {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.skill_bar {
+  margin: 0px 20px;
+  height: 3px;
+  background-color: grey;
+}
+
+.skill {
+  margin-bottom: 10px;
+}
+
+.skill_value {
+  background-color: orange;
+  height: 3px;
+}
+
+.tools {
+  background-color: rgb(121, 121, 121);
+}
+
+.etc {
+  background-color: darkgrey;
+}
+
+.tool_lists {
+  padding: 0;
+}
+
+.tools,
+.etc {
+  padding: 20px 0;
 }
