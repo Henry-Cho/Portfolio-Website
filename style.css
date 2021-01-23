@@ -126,10 +126,10 @@ nav {
 }
 
 .home_photo img {
-  width: 12rem;
+  width: 250px;
   height: 100%;
   background-color: rgb(245, 242, 229);
-  border-radius: 20%;
+  border-radius: 60%;
   border: 2px outset lightcyan;
 }
 
@@ -232,7 +232,7 @@ button {
 
 #skills_content {
   background-color: rgb(202, 243, 218);
-  max-width: 1200px;
+  max-width: 100%;
   color: white;
 }
 
@@ -387,4 +387,44 @@ button {
 .project:hover .project_description {
   opacity: 0.8;
   transition: all var(--animation-duration);
+}
+
+/* Testimonial */
+
+#testimonial_content {
+  background-color: rgb(237, 251, 253);
+  max-width: 100%;
+}
+
+.testimonial {
+  display: flex;
+  margin: 40px;
+}
+
+.testimonial img {
+  width: 250px;
+  height: 250px;
+  margin-right: 30px;
+  border-radius: 50%;
+}
+
+#t2 {
+  flex-direction: row-reverse;
+}
+
+#t2 img {
+  margin: 0 0 0 30px;
+}
+
+.testimonial p,
+.testimonial a {
+  color: black;
+}
+
+.tetimonial_speech-bubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  padding: 0 12px 0 12px;
 }
