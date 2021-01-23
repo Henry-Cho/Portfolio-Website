@@ -3,6 +3,7 @@
   /* Color */
   --color-dark-pink: pink;
   --color-black: black;
+  --color-blue: rgba(33, 226, 240, 0.459);
   /*Font size*/
   --font-large: 48px;
   --font-medium: 28px;
@@ -57,10 +58,16 @@ p {
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  width: 100%;
+}
+
+/* Section Common */
+
+.section {
+  padding: 50px;
+  text-align: center;
+  max-width: 1200px;
+  /* margin 은 zoom in (화면 축소) 을 해서라도 다시 확인해보자 */
+  margin: auto;
 }
 
 /* nav bar styling */
@@ -71,7 +78,7 @@ nav {
   align-items: center;
   height: 12vh;
   padding: 8px 12px;
-  background-color: rgb(180, 226, 238);
+  background-color: var(--color-blue);
 }
 
 .logo img {
@@ -106,11 +113,6 @@ nav {
 /* content box under the nav bar */
 /* Home */
 #home_content {
-  /*
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  */
   text-align: center;
   padding: 40px;
   background-image: url("image/Background.png");
@@ -126,9 +128,9 @@ nav {
 .home_photo img {
   width: 12rem;
   height: 100%;
-  background-color: rgb(200, 216, 193);
-  border-radius: 50%;
-  border: 2px solid lightcyan;
+  background-color: rgb(245, 242, 229);
+  border-radius: 20%;
+  border: 2px outset lightcyan;
 }
 
 .home_title {
@@ -138,7 +140,7 @@ nav {
 
 .home_title,
 .home_description {
-  color: white;
+  color: rgb(250, 249, 246);
 }
 
 a {
@@ -170,16 +172,6 @@ button {
   color: white;
 }
 
-/* Section Common */
-
-.section {
-  padding: 50px;
-  text-align: center;
-  max-width: 1200px;
-  /* margin 은 zoom in (화면 축소) 을 해서라도 다시 확인해보자 */
-  margin: auto;
-}
-
 /* Work */
 .about_major {
   display: flex;
@@ -192,14 +184,14 @@ button {
   height: 170px;
   line-height: 170px;
   font-size: 70px;
-  color: #9898e6;
+  color: darkgrey;
   border: 1px solid #2f2f36;
   border-radius: 50%;
   margin-bottom: 16px;
 }
 
 .major_icon:hover i {
-  color: var(--color-dark-pink);
+  color: var(--color-blue);
   transform: rotate(-30deg) scale(1.1);
 }
 
@@ -240,7 +232,7 @@ button {
 
 #skills_content {
   background-color: rgb(202, 243, 218);
-  max-width: 100%;
+  max-width: 1200px;
   color: white;
 }
 
@@ -273,7 +265,7 @@ button {
 }
 
 .skill_bar {
-  margin: 0px 20px;
+  margin: 10px 20px;
   height: 3px;
   background-color: grey;
 }
@@ -302,4 +294,97 @@ button {
 .tools,
 .etc {
   padding: 20px 0;
+}
+
+/* Work */
+
+.work_display {
+  margin: 40px;
+}
+
+.work_btn {
+  border: 1px solid darkgrey;
+  border-radius: 4px;
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+
+.work_btn.active,
+.work_btn:hover {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+.work_btn:hover .work-count {
+  top: 0px;
+  opacity: 1;
+  transition: all var(--animation-duration);
+}
+
+.work-count {
+  background-color: orange;
+  border-radius: 50%;
+  color: white;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  line-height: 24px;
+  position: relative;
+  top: -20px;
+  left: 6px;
+  opacity: 0;
+}
+
+.work_projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  position: relative;
+  width: 280px;
+  height: 250px;
+  margin: 8px;
+  background-color: lightgrey;
+  padding: 20px 0 20px 0;
+  border-radius: 4px;
+}
+
+.project_img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.project_description h3 {
+  color: white;
+}
+
+.project_description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  opacity: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project_description h3:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 25px;
+  background-color: white;
+  position: relative;
+  left: 45%;
+  margin-top: 10px;
+}
+
+.project:hover .project_description {
+  opacity: 0.8;
+  transition: all var(--animation-duration);
 }
