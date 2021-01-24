@@ -18,27 +18,34 @@
     </head>
 
     <body>
+        <!-- main page -->
         <!-- create a nav bar -->
-        <nav id= 'navbars'>
-            <div class="logo"><img src="/image/favicon.png.png"></div>
-            <ul class='nav_menu'>
-                <li class="nav_menu_item active">Home</li>
-                <li class="nav_menu_item">About</li>
-                <li class="nav_menu_item">Skill</li>
-                <li class="nav_menu_item">My work</li>
-                <li class="nav_menu_item">Testimonial</li>
-                <li class="nav_menu_item">Contact</li>
-            </ul>
-        </nav>
-        <!-- create body parts-->
-        <!-- Home-->
-        <section id="home_content">
-            <section class="home_photo"><img src="/image/Profilepic.png"></section>
-            <h1 class="home_title">This is Henry</h1>
-            <h2 class="home_description"> Learning Software Engineering <br> & <br> Currently Teaching English</h2>
-            <button class="home_contact">Contact Me</button>
+        <section class="main">
+            <nav id='navbars' class="navbars active">
+                <div class="logo"><img src="/image/favicon.png.png"></div>
+                <ul class='nav_menu'>
+                    <li class="nav_menu_item active">Home</li>
+                    <li class="nav_menu_item">About</li>
+                    <li class="nav_menu_item">Skill</li>
+                    <li class="nav_menu_item">My work</li>
+                    <li class="nav_menu_item">Testimonial</li>
+                    <li class="nav_menu_item">Contact</li>
+                </ul>
+        
+                <!-- Toogle Button -->
+                <button class="navbar_toogle-Btn active">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            <!-- create body parts-->
+            <!-- Home-->
+            <section id="home_content">
+                <section class="home_photo"><img src="/image/Profilepic.png"></section>
+                <h1 class="home_title">This is Henry</h1>
+                <h2 class="home_description"> Learning Software Engineering <br> & <br> Currently Teaching English</h2>
+                <button class="home_contact">Contact Me</button>
+            </section>
         </section>
-
         <!-- About Me -->
         <section id="about_content" class="section">
             <h1>About Me</h1>
@@ -62,7 +69,7 @@
                     <p class="major_description">Learned Python <br> to do data analysis</p>
                 </div>                
             </section>
-            <section class="about_career">
+            <div class="about_career">
                 <div class="career">
                     <img src="/image/BYUlogo.png" alt="BYUlogo">
                     <div class="career_description">
@@ -86,7 +93,7 @@
                         <p class="job_period">August 2020 - Present</p>
                     </div>
                 </div>
-            </section>
+            </div>
         </section>
 
         <!-- Skills -->
