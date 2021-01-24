@@ -79,8 +79,6 @@ nav {
   height: 12vh;
   padding: 8px 12px;
   background-color: var(--color-blue);
-  z-index: 1;
-  position: fixed;
   width: 100%;
 }
 
@@ -116,8 +114,6 @@ nav {
 /* content box under the nav bar */
 /* Home */
 #home_content {
-  position: relative;
-  top: 12vh;
   text-align: center;
   padding: 40px;
   background-image: url("image/Background.png");
@@ -195,7 +191,7 @@ button {
 }
 
 .major_icon:hover i {
-  color: var(--color-blue);
+  color: rgb(56, 56, 236);
   transform: rotate(-30deg) scale(1.1);
 }
 
@@ -235,9 +231,14 @@ button {
 /* Skill */
 
 #skills_content {
-  background-color: rgb(202, 243, 218);
   max-width: 100%;
+  background-color: rgb(202, 243, 218);
   color: white;
+}
+
+#skills_content .section_container {
+  max-width: 1200px;
+  margin: auto;
 }
 
 .skillset {
@@ -358,7 +359,6 @@ button {
 .project_img {
   max-width: 100%;
   max-height: 100%;
-  z-index: 0;
 }
 
 .project_description h3 {
@@ -401,6 +401,11 @@ button {
   max-width: 100%;
 }
 
+#testimonial_content .section_container {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .testimonial {
   display: flex;
   margin: 40px;
@@ -440,7 +445,6 @@ button {
   background-color: rgba(151, 224, 247, 0.644);
   max-width: 100%;
 }
-
 .contact_title {
   margin: 32px 0;
   color: white;
