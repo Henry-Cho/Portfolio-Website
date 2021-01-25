@@ -48,3 +48,12 @@ document.getElementById('home_contact_Btn').onclick = function() {
     // Do whatever now that the user has clicked the link.
     document.getElementById('contact').scrollIntoView({behavior: "smooth"});
 };
+
+/* Fade the home view on scroll */
+
+const home = document.querySelector('.home_container');
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener('scroll', ()=> {
+    home.style.opacity = 1 - window.scrollY / homeHeight;
+})
