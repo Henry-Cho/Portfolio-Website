@@ -3,7 +3,7 @@
   /* Color */
   --color-dark-pink: pink;
   --color-black: black;
-  --color-blue: rgba(33, 226, 240, 0.459);
+  --color-blue: rgb(33, 226, 240);
   /*Font size*/
   --font-large: 48px;
   --font-medium: 28px;
@@ -70,14 +70,6 @@ body {
   margin: auto;
 }
 
-/* main part (nav & home 의 배경을 하나로 만들기 위한 조치 */
-.main {
-  background-image: url("image/Background.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 /* nav bar styling */
 
 nav {
@@ -85,9 +77,18 @@ nav {
   justify-content: space-between;
   align-items: center;
   /* vh Vs. % 차이점 다시 공부하기.. 이것 때문에 반응형 만들기 힘들었다.*/
-  height: 20%;
+  height: 12%;
   padding: 8px 12px;
   width: 100%;
+  position: fixed;
+  z-index: 1;
+  background-color: transparent;
+}
+/* navbar 의 높이보다 내려갈 때 navbar 그라데이션 */
+#navbars.navbar--dark {
+  background-color: var(--color-blue);
+  padding: 8px;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 .navbar_toogle-Btn {
@@ -124,7 +125,10 @@ nav {
 }
 
 .nav_menu_item:hover {
+  cursor: pointer;
   background-color: var(--color-dark-pink);
+  transform: scale(1.1);
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 /* content box under the nav bar */
@@ -132,6 +136,11 @@ nav {
 #home_content {
   text-align: center;
   padding: 40px;
+  padding-top: 100px;
+  background-image: url("image/Background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .home_photo {
@@ -487,20 +496,18 @@ button {
   #navbars {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-blue);
   }
 
   .nav_menu {
     flex-direction: column;
     width: 100%;
     padding-left: 0;
-  }
-
-  .nav_menu.active {
     display: none;
   }
 
-  .navbars.active {
-    height: 20%;
+  .nav_menu.active {
+    display: block;
   }
 
   .nav_menu li {
