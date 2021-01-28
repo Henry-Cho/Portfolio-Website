@@ -193,6 +193,20 @@ button {
   color: white;
 }
 
+.arrowUp {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  font-size: var(--font-large);
+  color: rgb(255, 212, 70);
+  z-index: 1;
+}
+
+.arrowUp:hover {
+  transform: scale(1.1);
+  transition: all var(--animation-duration) ease-in-out;
+}
+
 /* Work */
 .about_major {
   display: flex;
@@ -504,11 +518,15 @@ button {
     flex-direction: column;
     width: 100%;
     padding-left: 0;
-    display: none;
+    display: block;
   }
 
   .nav_menu.active {
-    display: block;
+    display: none;
+  }
+
+  .navbars.active {
+    height: 60%;
   }
 
   .nav_menu li {

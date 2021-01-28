@@ -1,13 +1,69 @@
 'use strict'
+
+function uploadItems() {
+    return fetch('../data.json')
+    .then(response => response.json())
+    .then(json => json.items);
+}
+
+uploadItems()
+.then(items => {
+    displayItems(items);
+    setEventListener(items);
+})
+
+function createHTMLString(item) {
+    return `
+    <a href="#" class="project" target='blank' data-key="${item.kind}" data-value="${item.value}">
+        <img class="project_img" src="${item.url}">
+        <div class="project_description">
+            <h3>${item.title}</h3>
+            <span>${item.description}</span>
+        </div>
+    </a>
+    `;
+}
+
+function setEventListener(items) {
+    // set event listening point
+    const workBtns = document.querySelector('.work_display');
+
+    workBtns.addEventListener('click', (event) => {
+        const target = event.target.dataset;
+        const key = target.key;
+        const value = target.value;
+
+        if (key == null || value == null) {
+            return;
+        }
+        else {
+            if (value == 'all') {
+                displayItems(items);
+            }
+            else {
+                const filtered = items.filter(item => item[key] === value);
+                displayItems(filtered);
+            }
+        }
+        }
+    )
+}
+
+function displayItems(items) {
+    // diplay location
+    const display = document.querySelector('.work_projects');
+    
+    // copying items with map function
+    display.innerHTML = items.map(item => createHTMLString(item)).join('');
+}
+
 const toggle_Btn = document.querySelector('.navbar_toogle-Btn');
 const menu = document.querySelector('.nav_menu');
-const navbar_size = document.querySelector('.navbars');
 const navbar = document.querySelector('#navbars');
 const navbarHeight = navbar.getBoundingClientRect().height;
 // nav_bar toggle Btn activate
 toggle_Btn.addEventListener('click', ()=> {
     menu.classList.toggle('active');
-    navbar_size.classList.toggle('active');
 })
 
 // keyword 로 검색하기 Javascript scroll height
@@ -56,4 +112,18 @@ const homeHeight = home.getBoundingClientRect().height;
 
 document.addEventListener('scroll', ()=> {
     home.style.opacity = 1 - window.scrollY / homeHeight;
+})
+
+/* Arrow Up Button & go to the top */
+
+const arrowUp = document.querySelector('.arrowUp');
+const aboutMe = document.querySelector('#about_content');
+const aboutMeHeight = aboutMe.getBoundingClientRect().height;
+
+document.getElementById('arrowUp').onclick = function() {
+    document.getElementById('home_content').scrollIntoView({behavior: "smooth"});
+}
+
+document.addEventListener('scroll', ()=> {
+    arrowUp.style.opacity = window.scrollY / (homeHeight + aboutMeHeight * 0.25);
 })
