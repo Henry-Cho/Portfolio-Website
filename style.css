@@ -408,14 +408,19 @@ button {
   justify-content: center;
 }
 
+.project_description h3 {
+  color: orange;
+}
+
 .project_description h3:after {
   content: "";
   display: block;
   height: 2px;
-  width: 25px;
+  width: 50px;
   background-color: white;
   position: relative;
-  left: 45%;
+  left: 50%;
+  transform: translateX(-50%);
   margin-top: 10px;
 }
 
