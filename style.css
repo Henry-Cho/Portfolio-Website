@@ -77,7 +77,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   /* vh Vs. % 차이점 다시 공부하기.. 이것 때문에 반응형 만들기 힘들었다.*/
-  height: 12%;
   padding: 8px 12px;
   width: 100%;
   position: fixed;
@@ -119,16 +118,12 @@ nav {
   border-radius: var(--size-border-radius);
 }
 
-.nav_menu_item.active {
-  cursor: pointer;
-  border: 1px solid white;
-}
-
 .nav_menu_item:hover {
   cursor: pointer;
+  border: 1px solid white;
   background-color: var(--color-dark-pink);
   transform: scale(1.1);
-  transition: all var(--animation-duration) ease-in-out;
+  transition: all var(--animation-duration) ease;
 }
 
 /* content box under the nav bar */
@@ -511,7 +506,6 @@ button {
     flex-direction: column;
     align-items: flex-start;
     background-color: var(--color-blue);
-    height: 15%;
   }
 
   .nav_menu {
@@ -523,10 +517,6 @@ button {
 
   .nav_menu.active {
     display: none;
-  }
-
-  .navbars.active {
-    height: 60%;
   }
 
   .nav_menu li {

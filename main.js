@@ -1,10 +1,14 @@
 'use strict'
 
+// upload items from json file by using fetch
+
 function uploadItems() {
     return fetch('../data.json')
     .then(response => response.json())
     .then(json => json.items);
 }
+
+// make a default view without clicking buttons
 
 uploadItems()
 .then(items => {
@@ -23,6 +27,8 @@ function createHTMLString(item) {
     </a>
     `;
 }
+
+// set event listeners and make the event happen according to the settings
 
 function setEventListener(items) {
     // set event listening point
@@ -97,6 +103,8 @@ const navbar_menu = document.querySelector('.nav_menu');
 
 navbar_menu.addEventListener('click', (event)=> {
     scrollIntoView(event);
+    // toggle 'active' on navbar_menu when scrolling into view
+    navbar_menu.classList.toggle('active');
 })
 
 /* Scroll into View (Contact Me Button) */
@@ -127,3 +135,25 @@ document.getElementById('arrowUp').onclick = function() {
 document.addEventListener('scroll', ()=> {
     arrowUp.style.opacity = window.scrollY / (homeHeight + aboutMeHeight * 0.25);
 })
+
+/* My work button state */
+
+const workBtns = document.querySelector('.work_display');
+
+workBtns.addEventListener('click', (event) => {
+    const target = event.target.dataset;
+    const key = target.key;
+    const value = target.value;
+    const active_button = document.querySelector('.work_btn.active');
+
+    console.log(event.target);
+
+    if (key == null || value == null) {
+        return;
+    }
+
+    active_button.classList.remove('active');
+    event.target.classList.add('active');
+
+    }
+)
