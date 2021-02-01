@@ -38,11 +38,20 @@ function setEventListener(items) {
         const target = event.target.dataset;
         const key = target.key;
         const value = target.value;
+        const active_button = document.querySelector('.work_btn.active');
+
+        active_button.classList.remove('active');
+        const active_target = event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+        active_target.classList.add('active');
+        console.log(active_target.parentNode);
 
         if (key == null || value == null) {
             return;
         }
         else {
+            /* My work button state */
+            active_target.classList.add('active');
+
             if (value == 'all') {
                 displayItems(items);
             }
@@ -135,25 +144,3 @@ document.getElementById('arrowUp').onclick = function() {
 document.addEventListener('scroll', ()=> {
     arrowUp.style.opacity = window.scrollY / (homeHeight + aboutMeHeight * 0.25);
 })
-
-/* My work button state */
-
-const workBtns = document.querySelector('.work_display');
-
-workBtns.addEventListener('click', (event) => {
-    const target = event.target.dataset;
-    const key = target.key;
-    const value = target.value;
-    const active_button = document.querySelector('.work_btn.active');
-
-    console.log(event.target);
-
-    if (key == null || value == null) {
-        return;
-    }
-
-    active_button.classList.remove('active');
-    event.target.classList.add('active');
-
-    }
-)
