@@ -107,7 +107,7 @@ nav {
 
 .nav_menu {
   display: flex;
-  font-size: var(--font-small);
+  font-size: var(--font-regular);
 }
 
 .nav_menu_item {
@@ -513,6 +513,10 @@ button {
     background-color: var(--color-blue);
   }
 
+  .section {
+    padding: 16px;
+  }
+
   .nav_menu {
     flex-direction: column;
     width: 100%;
@@ -552,9 +556,40 @@ button {
     flex-grow: 1;
   }
 
+  .work_btn {
+    width: 100%;
+    margin: 4px 0;
+  }
+
   /* Testimonial */
   .testimonial img {
     width: 70px;
     height: 70px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #t2 {
+    flex-direction: column;
+  }
+
+  #t2 img {
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  /* contact */
+
+  .contact_email {
+    overflow-x: hidden;
+  }
+
+  .contact_email {
+    font-size: var(--font-small);
   }
 }
