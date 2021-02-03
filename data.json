@@ -2,19 +2,19 @@
     "items": [
         {
             "kind": "practice",
-            "url": "image/projects/YouTubeClon.png",
+            "url": "../image/projects/YouTubeClon.png",
             "title": "Youtube Site",
             "description": "Clone coding with HTML and CSS"
         },
         {
             "kind": "mini",
-            "url": "image/projects/Responsive_header.png",
+            "url": "../image/projects/Responsive_header.png",
             "title": "Responsive_header",
             "description": "Clone coding with HTML and CSS"
         },
         {
             "kind": "mini",
-            "url": "image/projects/MiniShop.png",
+            "url": "../image/projects/MiniShop.png",
             "title": "Mini Project1",
             "description": "Clone coding with HTML and CSS"
         }
