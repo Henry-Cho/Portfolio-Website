@@ -132,7 +132,7 @@ nav {
   text-align: center;
   padding: 40px;
   padding-top: 100px;
-  background-image: url("/image/Background.png");
+  background-image: url("./image/Background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
