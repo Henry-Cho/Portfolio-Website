@@ -2,7 +2,7 @@
     "items": [
         {
             "kind": "practice",
-            "url": "./image/YouTubeclon.png",
+            "url": "./image/projects/YouTubeclon.png",
             "title": "Youtube Site",
             "description": "Clone coding with HTML and CSS"
         },

@@ -3,12 +3,8 @@
 // upload items from json file by using fetch
 
 function uploadItems() {
-    return fetch('/data.json', {
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-         }
-        })
+    return fetch('data/data.json')
+    .catch(console.log("error"))
     .then(response => response.json())
     .then(json => json.items);
 }
@@ -16,7 +12,7 @@ function uploadItems() {
 // make a default view without clicking buttons
 
 uploadItems()
-.then(items => {
+.then((items) => {
     displayItems(items);
     setEventListener(items);
 })
