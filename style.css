@@ -110,6 +110,10 @@ nav {
   font-size: var(--font-regular);
 }
 
+.nav_menu_item.active {
+  border: 1px solid white;
+}
+
 .nav_menu_item {
   color: white;
   padding: 8px 12px;

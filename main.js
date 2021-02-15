@@ -137,6 +137,14 @@ document.addEventListener('scroll', ()=> {
 const arrowUp = document.querySelector('.arrowUp');
 const aboutMe = document.querySelector('#about_content');
 const aboutMeHeight = aboutMe.getBoundingClientRect().height;
+const skill = document.querySelector('#skills_content');
+const skillHeight = skill.getBoundingClientRect().height;
+const work = document.querySelector('#work_content');
+const workHeight = work.getBoundingClientRect().height;
+const testimonial = document.querySelector('#testimonial_content');
+const testimonialHeight = testimonial.getBoundingClientRect().height;
+const contact = document.querySelector('#contact');
+const contactHeight = contact.getBoundingClientRect().height;
 
 document.getElementById('arrowUp').onclick = function() {
     document.getElementById('home_content').scrollIntoView({behavior: "smooth"});
@@ -144,4 +152,58 @@ document.getElementById('arrowUp').onclick = function() {
 
 document.addEventListener('scroll', ()=> {
     arrowUp.style.opacity = window.scrollY / (homeHeight + aboutMeHeight * 0.25);
+})
+
+// navbar menu spying on scroll
+
+const home_start = 0;
+const about_start = homeHeight;
+const skill_start = about_start + aboutMeHeight;
+const work_start = skill_start + skillHeight;
+const testimonial_start = work_start + workHeight; 
+const contact_start = testimonial_start + testimonialHeight;
+
+document.addEventListener('scroll', ()=> {
+    
+    if ((window.scrollY >= home_start) && (window.scrollY < homeHeight)) {
+        const currActive = document.querySelector(".nav_menu_item.active");
+        currActive.classList.remove('active');
+        const navActive = document.querySelector("#home_id");
+        navActive.classList.add('active');
+    }
+
+    else if ((window.scrollY >= about_start) && (window.scrollY < skill_start)) {
+        const currActive = document.querySelector(".nav_menu_item.active");
+        currActive.classList.remove('active');
+        const navActive = document.querySelector("#about_id");
+        navActive.classList.add('active');
+    }
+
+    else if ((window.scrollY >= skill_start) && (window.scrollY < work_start)) {
+        const currActive = document.querySelector(".nav_menu_item.active");
+        currActive.classList.remove('active');
+        const navActive = document.querySelector("#skill_id");
+        navActive.classList.add('active');
+    }
+
+    else if ((window.scrollY >= work_start) && (window.scrollY < testimonial_start)) {
+        const currActive = document.querySelector(".nav_menu_item.active");
+        currActive.classList.remove('active');
+        const navActive = document.querySelector("#work_id");
+        navActive.classList.add('active');
+    }
+
+    else if ((window.scrollY >= testimonial_start) && (window.scrollY < contact_start)) {
+        const currActive = document.querySelector(".nav_menu_item.active");
+        currActive.classList.remove('active');
+        const navActive = document.querySelector("#testimonial_id");
+        navActive.classList.add('active');
+    }
+
+    else {
+        const currActive = document.querySelector(".nav_menu_item.active");
+        currActive.classList.remove('active');
+        const navActive = document.querySelector("#contact_id");
+        navActive.classList.add('active');
+    }
 })
