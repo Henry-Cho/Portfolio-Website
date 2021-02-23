@@ -85,7 +85,7 @@ nav {
 }
 /* navbar 의 높이보다 내려갈 때 navbar 그라데이션 */
 #navbars.navbar--dark {
-  background-color: var(--color-blue);
+  background-color: #42eaddff;
   padding: 8px;
   transition: all var(--animation-duration) ease-in-out;
 }
@@ -99,12 +99,18 @@ nav {
   display: none;
 }
 
-.logo img {
+.logo i {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  color: white;
+  margin-left: 15px;
   width: 80px;
 }
 
+.logo span {
+  margin-left: 10px;
+  font-family: "Open Sans", sans-serif;
+}
 .nav_menu {
   display: flex;
   font-size: var(--font-regular);
@@ -125,7 +131,7 @@ nav {
 .nav_menu_item:hover {
   cursor: pointer;
   border: 1px solid white;
-  background-color: var(--color-dark-pink);
+  background-color: #cdb599ff;
   transform: scale(1.1);
   transition: all var(--animation-duration) ease;
 }
@@ -140,6 +146,7 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  max-width: 100%;
 }
 
 .home_photo {
@@ -190,6 +197,12 @@ button {
   border: 2px solid white;
   border-radius: var(--size-border-radius);
   color: white;
+  transition: all 0.8s ease-in-out;
+}
+
+.home_contact:hover {
+  background: #cdb599ff;
+  transform: rotate(1turn);
 }
 
 .arrowUp {
@@ -197,13 +210,17 @@ button {
   bottom: 10px;
   right: 15px;
   font-size: var(--font-large);
-  color: rgb(255, 212, 70);
+  color: rgb(236, 212, 149);
   z-index: 1;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 .arrowUp:hover {
-  transform: scale(1.1);
-  transition: all var(--animation-duration) ease-in-out;
+  transform: scale(1.5);
+}
+
+.arrowUp:active {
+  transform: scale(1.8);
 }
 
 /* Work */
@@ -225,7 +242,7 @@ button {
 }
 
 .major_icon:hover i {
-  color: rgb(56, 56, 236);
+  color: #42eaddff;
   transform: rotate(-30deg) scale(1.1);
 }
 
@@ -341,6 +358,13 @@ button {
   margin: 40px;
 }
 
+#work_content h3 {
+  font-size: var(--font-medium);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
+  margin: 8px 0px;
+}
+
 .work_btn {
   border: 1px solid darkgrey;
   border-radius: 4px;
@@ -350,7 +374,7 @@ button {
 
 .work_btn.active,
 .work_btn:hover {
-  background-color: var(--color-blue);
+  background-color: #42eaddff;
   color: white;
 }
 
@@ -361,7 +385,7 @@ button {
 }
 
 .work-count {
-  background-color: orange;
+  background-color: #cdb599ff;
   border-radius: 50%;
   color: white;
   width: 24px;
@@ -470,6 +494,13 @@ button {
   color: black;
 }
 
+.testimonial_description {
+  font-size: var(--font-medium);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
+  margin: 8px 0px;
+}
+
 .tetimonial_speech-bubble {
   display: flex;
   flex-direction: column;
@@ -480,7 +511,7 @@ button {
 
 /* Contact */
 
-#contact {
+#contact_content {
   background-color: rgba(151, 224, 247, 0.644);
   max-width: 100%;
 }
@@ -514,7 +545,7 @@ button {
   #navbars {
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--color-blue);
+    background-color: #42eaddff;
   }
 
   .section {

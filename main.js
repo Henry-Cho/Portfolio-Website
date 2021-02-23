@@ -44,7 +44,7 @@ function setEventListener(items) {
         active_button.classList.remove('active');
         const active_target = event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
         active_target.classList.add('active');
-        console.log(active_target.parentNode);
+        //console.log(active_target.parentNode);
 
         if (key == null || value == null) {
             return;
@@ -105,7 +105,7 @@ function scrollIntoView(event) {
         return;
     }
     else {
-        document.getElementById(`${real_target}`).scrollIntoView({behavior: "smooth"});
+        document.querySelector(`${real_target}`).scrollIntoView({behavior: "smooth"});
     }
 }
 
@@ -113,20 +113,25 @@ const navbar_menu = document.querySelector('.nav_menu');
 
 navbar_menu.addEventListener('click', (event)=> {
     scrollIntoView(event);
+    selectNavItem(event.target);
     // toggle 'active' on navbar_menu when scrolling into view
     navbar_menu.classList.toggle('active');
+
 })
 
 /* Scroll into View (Contact Me Button) */
 document.getElementById('home_contact_Btn').onclick = function() {
     // Do whatever now that the user has clicked the link.
-    document.getElementById('contact').scrollIntoView({behavior: "smooth"});
+    document.getElementById('contact_content').scrollIntoView({behavior: "smooth"});
+    selectNavItem(navItems[navItems.length - 1]);
 };
 
 /* Fade the home view on scroll */
 
 const home = document.querySelector('.home_container');
 const homeHeight = home.getBoundingClientRect().height;
+const about = document.querySelector('#about_content');
+const aboutMeHeight = about.getBoundingClientRect().height;
 
 document.addEventListener('scroll', ()=> {
     home.style.opacity = 1 - window.scrollY / homeHeight;
@@ -135,27 +140,131 @@ document.addEventListener('scroll', ()=> {
 /* Arrow Up Button & go to the top */
 
 const arrowUp = document.querySelector('.arrowUp');
-const aboutMe = document.querySelector('#about_content');
-const aboutMeHeight = aboutMe.getBoundingClientRect().height;
-const skill = document.querySelector('#skills_content');
-const skillHeight = skill.getBoundingClientRect().height;
-const work = document.querySelector('#work_content');
-const workHeight = work.getBoundingClientRect().height;
-const testimonial = document.querySelector('#testimonial_content');
-const testimonialHeight = testimonial.getBoundingClientRect().height;
-const contact = document.querySelector('#contact');
-const contactHeight = contact.getBoundingClientRect().height;
 
 document.getElementById('arrowUp').onclick = function() {
     document.getElementById('home_content').scrollIntoView({behavior: "smooth"});
+    selectNavItem(navItems[0]);
 }
 
 document.addEventListener('scroll', ()=> {
     arrowUp.style.opacity = window.scrollY / (homeHeight + aboutMeHeight * 0.25);
 })
 
+
+// 1. 모든 섹션 요소들과 메뉴 아이템들을 가지고 온다
+// 2. IntersectionObserver를 이요앻서 모든 섹션들을 관찰한다.
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.
+
+const sectionIDs = [
+    '#home_content',
+    '#about_content',
+    '#skills_content',
+    '#work_content',
+    '#testimonial_content',
+    '#contact_content'
+];
+
+const sections = sectionIDs.map(id => document.querySelector(id));
+const navItems = sectionIDs.map(id => document.querySelector(`[data-link= "${id}"]`));
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3,
+}
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+
+function selectNavItem(selected) {
+    selectedNavItem.classList.remove('active');
+    selectedNavItem = selected;
+    selectedNavItem.classList.add('active');
+}
+
+const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        //console.error(entry);
+        if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+            //console.error(entry.target);
+            const index = sectionIDs.indexOf(`#${entry.target.id}`);
+            
+            // 스크롤링 아래로, 페이지 위로
+            if (entry.boundingClientRect.y < 0) {
+                selectedNavIndex = index + 1;
+            }
+            else {
+                selectedNavIndex = index - 1;
+            }
+        }
+        //console.log(entry.target.getBoundingClientRect());
+    });
+}
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+sections.forEach(section => observer.observe(section));
+
+window.addEventListener('wheel', ()=> {
+    /** 
+    console.log("window scroll Y: " + window.scrollY);
+    console.log('--------------------');
+    console.log("window innerHeight: " + window.innerHeight);
+    console.log('--------------------');
+    console.log('total: ' + Math.round(window.scrollY + window.innerHeight));
+    console.log('--------------------');
+    console.log("document body innerHeight: " + document.body.clientHeight);
+    */
+    if (window.scrollY === 0) {
+        selectedNavIndex = 0;
+        //console.log("나는 처음이다");
+    }
+    else if (Math.round(window.scrollY + window.innerHeight) === document.body.clientHeight) {
+        //console.log("나는 마지막이다!");
+        selectedNavIndex = navItems.length - 1;
+    }
+    else if (Math.round(window.scrollY + window.innerHeight) === document.body.clientHeight - 1) {
+        //console.log("나는 마지막이다!");
+        selectedNavIndex = navItems.length - 1;
+    }
+    selectNavItem(navItems[selectedNavIndex]);
+})
+
+
 // navbar menu spying on scroll
 
+/** 
+const sections = document.querySelectorAll('.section');
+//console.log(sections);
+//const nav_menu_items = document.querySelectorAll('.nav_menu_item');
+
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+}
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            console.log(entry);
+            let currActive = document.querySelector('.nav_menu_item.active');
+            currActive.classList.remove('active');
+            navbar_menu.querySelector(`#${entry.target.id.split('_')[0]}`).classList.add('active')
+            //console.log(nav_menu.querySelector(idName))
+            //navbar_menu.querySelector(idName).classList.add('active');
+            
+        }
+        else {
+           // navbar_menu.querySelector(idName).classList.remove('active');
+           console.error(entry);
+           //navbar_menu.querySelector(`#${entry.target.id.split('_')[0]}`).classList.remove('active')
+        }
+    })
+});
+
+sections.forEach(section => observer.observe(section));
+*/
+/** 
 const home_start = 0;
 const about_start = homeHeight;
 const skill_start = about_start + aboutMeHeight;
@@ -183,7 +292,7 @@ document.addEventListener('scroll', ()=> {
         const currActive = document.querySelector(".nav_menu_item.active");
         currActive.classList.remove('active');
         const navActive = document.querySelector("#skill_id");
-        navActive.classList.add('active');
+        navActive.classList.add('active');  
     }
 
     else if ((window.scrollY >= work_start) && (window.scrollY < testimonial_start)) {
@@ -207,3 +316,4 @@ document.addEventListener('scroll', ()=> {
         navActive.classList.add('active');
     }
 })
+*/

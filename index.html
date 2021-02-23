@@ -21,14 +21,14 @@
     <body>
         <!-- create a nav bar -->
         <nav id='navbars' class="navbars active">
-            <div class="logo"><img src="./image/favicon.png.png"></div>
+            <div class="logo"><i class="fas fa-archway"><span>Henry</span></i></div>
             <ul class='nav_menu active'>
-                <li class="nav_menu_item active" data-link= "home_content" id="home_id">Home</li>
-                <li class="nav_menu_item" data-link= "about_content" id="about_id">About</li>
-                <li class="nav_menu_item" data-link= "skills_content" id="skill_id">Skill</li>
-                <li class="nav_menu_item" data-link= "work_content" id="work_id">My work</li>
-                <li class="nav_menu_item" data-link= "testimonial_content" id="testimonial_id">Testimonial</li>
-                <li class="nav_menu_item" data-link= "contact" id="contact_id">Contact</li>
+                <li class="nav_menu_item active" data-link= "#home_content">Home</li>
+                <li class="nav_menu_item" data-link= "#about_content">About</li>
+                <li class="nav_menu_item" data-link= "#skills_content">Skill</li>
+                <li class="nav_menu_item" data-link= "#work_content">My work</li>
+                <li class="nav_menu_item" data-link= "#testimonial_content">Testimonial</li>
+                <li class="nav_menu_item" data-link= "#contact_content">Contact</li>
             </ul>
     
             <!-- Toogle Button -->
@@ -38,7 +38,7 @@
         </nav>
         <!-- create body parts-->
         <!-- Home-->
-        <section id="home_content" class="home">
+        <section id="home_content" class="section" data-link= "home_content">
             <section class="home_container">
                 <section class="home_photo"><img src="./image/Profilepic.png"></section>
                 <h1 class="home_title">This is Henry</h1>
@@ -48,9 +48,9 @@
         </section>
         <button class="arrowUp" id="arrowUp"><i class="fas fa-arrow-circle-up"></i></button>
         <!-- About Me -->
-        <section id="about_content" class="section">
+        <section id="about_content" class="section" data-link= "about_content">
             <h1>About Me</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse tenetur, alias, ipsam delectus saepe voluptas dolore quidem commodi harum optio cumque incidunt. Aperiam itaque minima natus voluptatibus officiis maxime perferendis.</p>
+            <p>I am currently in a Junior year and am an Information Systems major candidate. After the Korean military service, I came back to BYU and prepared to apply to the IS Program this June, taking the prerequisite classes. This year, I became more proficient in creating programs through using Excel (VBA) and Visual Studio (C++) as well as analyzing data through SQL and Tableau. Also, I want to continue to expand my knowledge of C-language; so, even though Computer Science is not my major, I am taking CS235(C++ Data Structure) to increase my ability to solve unorganized problems through an algorithm. As currently seeking internship opportunities, I want to have an IT-exposure in different fields (data analysis and machine learning) so that I will be able to set my specific career direction. </p>
             <section class="about_major">
                 <div class="major">
                     <div class="major_icon"><i class="fab fa-html5"></i></div>
@@ -98,13 +98,12 @@
         </section>
 
         <!-- Skills -->
-        <section id="skills_content" class="section">
+        <section id="skills_content" class="section" data-link= "skills_content">
             <div class="section_container">
                 <h1>Skills</h1>
                 <h2>Skills & Attributes</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quas repudiandae tenetur ipsum, modi
-                    necessitatibus debitis. Nesciunt quidem culpa, ipsa, error nulla ipsum fuga eaque cum adipisci at doloribus
-                    harum.</p>
+                <p>I have learned how to properly utilize these skills below. <br>
+                Also, I have used several platforms where I have practiced programming.</p>
                 <div class="skillset">
                     <div class="skill_left">
                         <h3 class="skillset_title">Skills</h3>
@@ -112,10 +111,10 @@
                             <div class="skill_description">
                                 <!-- progress bar -->
                                 <span>HTML</span>
-                                <span>60%</span>
+                                <span>70%</span>
                             </div>
                             <div class="skill_bar">
-                                <div class="skill_value" style="width: 60%;"></div>
+                                <div class="skill_value" style="width: 70%;"></div>
                             </div>
                         </div>
         
@@ -134,10 +133,10 @@
                             <div class="skill_description">
                                 <!-- progress bar -->
                                 <span>JavaScript</span>
-                                <span>60%</span>
+                                <span>50%</span>
                             </div>
                             <div class="skill_bar">
-                                <div class="skill_value" style="width: 60%;"></div>
+                                <div class="skill_value" style="width: 50%;"></div>
                             </div>
                         </div>
                     </div>
@@ -147,7 +146,7 @@
                             <h3 class="skillset_title">Tools</h3>
                             <ul class="tool_lists">
                                 <li>Visual Studio Code</li>
-                                <li>Visual Studio</li>
+                                <li>Pycharm</li>
                                 <li>Jupiter Notebook</li>
                                 <li></li>
                             </ul>
@@ -155,9 +154,9 @@
                         <div class="etc">
                             <h3 class="skillset_title">Etc</h3>
                             <ul class="tool_lists">
-                                <li>Visual Studio Code</li>
                                 <li>Visual Studio</li>
-                                <li>Jupiter Notebook</li>
+                                <li>Google Colab</li>
+                                <li>Github</li>
                                 <li></li>
                             </ul>
                         </div>
@@ -167,14 +166,14 @@
         </section>
 
         <!-- My Work -->
-        <section id="work_content" class="section">
+        <section id="work_content" class="section" data-link= "work_content">
             <div class="section_container">
                 <h1>My Work</h1>
                 <h3>Projects</h3>
                 <div class="work_display">
-                    <button class="work_btn" data-key= "kind" data-value="mini">Mini Project <span class="work-count">3</span></button>
-                    <button class="work_btn" data-key= "kind" data-value="practice">Practice <span class="work-count">3</span></button>
-                    <button class="work_btn active" data-key="kind" data-value="all">All <span class="work-count">6</span></button>
+                    <button class="work_btn" data-key= "kind" data-value="mini">Mini Project <span class="work-count">2</span></button>
+                    <button class="work_btn" data-key= "kind" data-value="practice">Practice <span class="work-count">1</span></button>
+                    <button class="work_btn active" data-key="kind" data-value="all">All <span class="work-count">3</span></button>
                 </div>
                 <div class="work_projects">
                     <!--
@@ -207,28 +206,27 @@
         </section>
 
         <!-- Testimonials -->
-        <section id="testimonial_content" class="section">
+        <section id="testimonial_content" class="section" data-link= "testimonial_content">
             <div class="section_container">
                 <h1 class="testimonial_title">Testimonials</h1>
                 <h3 class="testimonial_description">See what they say about me</h3>
                 <div class="testimonials">
                     <div class="testimonial" id="t1">
-                        <img src="./image/people1.jpg" alt="People" class="testimonial_avatar">
+                        <img src="https://media-exp1.licdn.com/dms/image/C5603AQEVgN4SgAv-bw/profile-displayphoto-shrink_100_100/0/1569215954804?e=1619654400&v=beta&t=XhBD1tZuw5Vl-gvJRtffW8nRwPMxAtVKLkg9nOQ6-40" alt="People" class="testimonial_avatar">
                         <div class="tetimonial_speech-bubble">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga magni nesciunt, maxime asperiores
-                                illum veniam aspernatur, a autem molestias dolorum quae, quod magnam optio unde beatae! Dolorum
-                                eaque accusamus laborum.</p>
-                            <p class="name"><a href="#">Ellie / SAMSUNG</a></p>
+                            <p>If you need someone humble, honest, diligent, organized, and smart, Hyungseok (Henry) is the man. His diligence and consistency in dealing with tasks can bring values to whatever organization he is in. He organizes himself through making long-term and short-term planning, which enables him to complete the tasks on time. Also, he adapts new things quickly that he can work under ambiguous projects.</p>
+                            <p class="name">Hoyong Jung<a href="#">Software Engineer | Student at Brigham Young University</a></p>
                         </div>
                     </div>
         
                     <div class="testimonial" id="t2">
-                        <img src="./image/people1.jpg" alt="People" class="testimonial_avatar">
+                        <img src="https://media-exp1.licdn.com/dms/image/C5603AQHsN9tgeiQsWw/profile-displayphoto-shrink_100_100/0/1565736242348?e=1619654400&v=beta&t=1Pgx97ocnMtFme1fd-eD_vjWwM2JMKE8QlTDWlY_HbY" alt="People" class="testimonial_avatar">
                         <div class="tetimonial_speech-bubble">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga magni nesciunt, maxime asperiores
-                                illum veniam aspernatur, a autem molestias dolorum quae, quod magnam optio unde beatae! Dolorum
-                                eaque accusamus laborum.</p>
-                            <p class="name"><a href="#">Ellie / SAMSUNG</a></p>
+                            <p>I see that you are a student at BYU and have such experiences. But what do you want other people to know about you?
+                                Instead of explaining your experiences in the “About me” section, how about writing your goals, interests, what you’re looking for, internship searching, etc. Based on that, I would also add picture in your background to make it easy for others to recognize that you are interested such things.
+                                You also know several computer languages. I would add them to your skills section. It will be easier for recruiters to find you.
+                                Most importantly, connect more people! After networking events, find the speakers or people you interacted.</p>
+                            <p class="name">Brian Choi<a href="#">Advisory Consultant at Deloitte</a></p>
                         </div>
                     </div>
                 </div>
@@ -237,7 +235,7 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="section">
+        <section id="contact_content" class="section" data-link= "contact">
             <h1 class="contact_title">Let's talk</h1>
             <h2 class="contact_email">hyungseok5926@gmail.com</h2>
             <div class="contact_links">
