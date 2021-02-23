@@ -104,7 +104,6 @@ nav {
   font-weight: var(--weight-semi-bold);
   color: white;
   margin-left: 15px;
-  width: 80px;
 }
 
 .logo span {
@@ -201,7 +200,8 @@ button {
 }
 
 .home_contact:hover {
-  background: #cdb599ff;
+  background: white;
+  color: #42eaddff;
   transform: rotate(1turn);
 }
 
@@ -437,7 +437,7 @@ button {
 }
 
 .project_description h3 {
-  color: orange;
+  color: white;
 }
 
 .project_description h3:after {
@@ -546,6 +546,10 @@ button {
     flex-direction: column;
     align-items: flex-start;
     background-color: #42eaddff;
+  }
+
+  #navbars .logo i {
+    padding: 20px 0 20px 0;
   }
 
   .section {

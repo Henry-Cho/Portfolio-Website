@@ -134,7 +134,7 @@ const about = document.querySelector('#about_content');
 const aboutMeHeight = about.getBoundingClientRect().height;
 
 document.addEventListener('scroll', ()=> {
-    home.style.opacity = 1 - window.scrollY / homeHeight;
+    home.style.opacity = 1 - window.scrollY / (homeHeight);
 })
 
 /* Arrow Up Button & go to the top */
